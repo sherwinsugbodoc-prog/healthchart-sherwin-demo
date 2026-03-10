@@ -131,6 +131,7 @@ export function RecordDetailDrawer({ record, open, onClose }: RecordDetailDrawer
                 <Button variant="outline" size="sm">Print Prescription</Button>
                 <Button variant="outline" size="sm">Discontinue</Button>
                 <Button variant="outline" size="sm">Renew</Button>
+                <Button variant="outline" size="sm">Cancel</Button>
               </div>
             </div>
           )}
