@@ -76,6 +76,7 @@ export function RecordDetailDrawer({ record, open, onClose }: RecordDetailDrawer
                         record.status === 'warning' && 'status-warning',
                         record.status === 'success' && 'status-success',
                         record.status === 'info' && 'status-info',
+                        record.status === 'pending' && 'status-pending',
                         record.status === 'pending' && 'status-pending'
                       )}
                     >
@@ -130,6 +131,7 @@ export function RecordDetailDrawer({ record, open, onClose }: RecordDetailDrawer
                 <Button variant="outline" size="sm">Print Prescription</Button>
                 <Button variant="outline" size="sm">Discontinue</Button>
                 <Button variant="outline" size="sm">Renew</Button>
+                <Button variant="outline" size="sm">Cancel</Button>
               </div>
             </div>
           )}
