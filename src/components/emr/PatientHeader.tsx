@@ -93,6 +93,11 @@ export function PatientHeader({
                 🚨 {alert.message}
               </Badge>
             ))}
+             {patient.alerts.filter(a => a.type === 'critical').map((alert) => (
+              <Badge key={alert.id} variant="outline" className="status-critical text-2xs md:text-xs font-medium whitespace-nowrap">
+                🚨 {alert.message}
+              </Badge>
+            ))}
           </div>
         </div>
       )}
