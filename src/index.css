@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors - SugboDoc Indigo */
+    --primary: 233 52% 52%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Background & Surfaces */
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    /* Secondary - Soft indigo tint */
+    --secondary: 233 30% 96%;
+    --secondary-foreground: 233 52% 35%;
+    
+    /* Muted - Clinical gray */
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 46%;
+    
+    /* Accent - Light indigo hover */
+    --accent: 233 40% 94%;
+    --accent-foreground: 233 52% 40%;
+    
+    /* Destructive - Clinical red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Clinical Status Colors */
+    --status-critical: 0 84% 60%;
+    --status-critical-foreground: 0 0% 100%;
+    --status-critical-bg: 0 84% 97%;
+    
+    --status-warning: 38 92% 50%;
+    --status-warning-foreground: 38 92% 20%;
+    --status-warning-bg: 38 92% 95%;
+    
+    --status-success: 142 71% 45%;
+    --status-success-foreground: 0 0% 100%;
+    --status-success-bg: 142 71% 95%;
+    
+    --status-info: 199 89% 48%;
+    --status-info-foreground: 0 0% 100%;
+    --status-info-bg: 199 89% 95%;
+    
+    --status-pending: 262 52% 55%;
+    --status-pending-foreground: 0 0% 100%;
+    --status-pending-bg: 262 52% 96%;
+    
+    /* Encounter Status */
+    --encounter-admitted: 233 52% 52%;
+    --encounter-for-discharge: 38 92% 50%;
+    --encounter-discharged: 142 71% 45%;
+    
+    /* Borders & Inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 233 52% 52%;
+    
+    --radius: 0.5rem;
+    
+    /* Sidebar - Nav Rail */
+    --sidebar-background: 233 52% 52%;
+    --sidebar-foreground: 233 30% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 233 52% 52%;
+    --sidebar-accent: 233 60% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 233 40% 45%;
+    --sidebar-ring: 0 0% 100%;
+    
+    /* Panel Dividers */
+    --panel-border: 220 13% 88%;
+    
+    /* Timeline */
+    --timeline-line: 220 13% 85%;
+    --timeline-dot: 233 52% 52%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 233 52% 60%;
+    --primary-foreground: 222 47% 8%;
+    
+    --secondary: 233 30% 18%;
+    --secondary-foreground: 233 30% 85%;
+    
+    --muted: 222 30% 18%;
+    --muted-foreground: 220 9% 60%;
+    
+    --accent: 233 40% 20%;
+    --accent-foreground: 233 40% 90%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 222 30% 20%;
+    --input: 222 30% 20%;
+    --ring: 233 52% 60%;
+    
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 233 30% 85%;
+    --sidebar-primary: 233 52% 60%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 233 40% 20%;
+    --sidebar-accent-foreground: 233 30% 90%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 233 52% 60%;
+    
+    --panel-border: 222 30% 18%;
+    --timeline-line: 222 30% 25%;
+    --timeline-dot: 233 52% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  
+  /* Compact scrollbars for clinical density */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Clinical status badges */
+  .status-critical {
+    @apply bg-[hsl(var(--status-critical-bg))] text-[hsl(var(--status-critical))] border border-[hsl(var(--status-critical))]/20;
+  }
+  
+  .status-warning {
+    @apply bg-[hsl(var(--status-warning-bg))] text-[hsl(var(--status-warning-foreground))] border border-[hsl(var(--status-warning))]/20;
+  }
+  
+  .status-success {
+    @apply bg-[hsl(var(--status-success-bg))] text-[hsl(var(--status-success))] border border-[hsl(var(--status-success))]/20;
+  }
+  
+  .status-info {
+    @apply bg-[hsl(var(--status-info-bg))] text-[hsl(var(--status-info))] border border-[hsl(var(--status-info))]/20;
+  }
+  
+  .status-pending {
+    @apply bg-[hsl(var(--status-pending-bg))] text-[hsl(var(--status-pending))] border border-[hsl(var(--status-pending))]/20;
+  }
+  
+  /* Encounter status pills */
+  .encounter-admitted {
+    @apply bg-primary text-primary-foreground;
+  }
+  
+  .encounter-for-discharge {
+    @apply bg-[hsl(var(--encounter-for-discharge))] text-white;
+  }
+  
+  .encounter-discharged {
+    @apply bg-[hsl(var(--encounter-discharged))] text-white;
+  }
+  
+  /* Panel styling */
+  .panel-header {
+    @apply px-3 py-2 border-b bg-card font-medium text-sm flex items-center justify-between sticky top-0 z-10;
+  }
+  
+  /* Timeline styling */
+  .timeline-item {
+    @apply relative pl-6 pb-4 border-l-2 border-[hsl(var(--timeline-line))] ml-2;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-[-5px] top-1 w-2 h-2 rounded-full bg-[hsl(var(--timeline-dot))];
+  }
+  
+  .timeline-item:last-child {
+    @apply border-l-transparent;
+  }
+  
+  /* Collapsible sections */
+  .section-trigger {
+    @apply flex items-center justify-between w-full px-3 py-2 text-sm font-medium hover:bg-accent/50 transition-colors rounded-md;
+  }
+  
+  /* Clinical card */
+  .clinical-card {
+    @apply bg-card rounded-lg border shadow-sm hover:shadow-md transition-shadow cursor-pointer;
+  }
+  
+  /* Nav rail */
+  .nav-rail {
+    @apply bg-sidebar text-sidebar-foreground flex flex-col items-center py-3 gap-1;
+  }
+  
+  .nav-rail-item {
+    @apply w-10 h-10 flex items-center justify-center rounded-lg text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors;
+  }
+  
+  .nav-rail-item.active {
+    @apply bg-sidebar-primary text-sidebar-primary-foreground;
+  }
+}
+
+@layer utilities {
+  .text-clinical-label {
+    @apply text-xs font-medium uppercase tracking-wide text-muted-foreground;
+  }
+  
+  .text-clinical-value {
+    @apply text-sm font-semibold text-foreground;
+  }
+  
+  /* Safe area padding for mobile bottom nav */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .text-2xs {
+    font-size: 0.625rem;
+    line-height: 0.875rem;
+  }
+}
