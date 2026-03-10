@@ -76,6 +76,7 @@ export function RecordDetailDrawer({ record, open, onClose }: RecordDetailDrawer
                         record.status === 'warning' && 'status-warning',
                         record.status === 'success' && 'status-success',
                         record.status === 'info' && 'status-info',
+                        record.status === 'pending' && 'status-pending',
                         record.status === 'pending' && 'status-pending'
                       )}
                     >
